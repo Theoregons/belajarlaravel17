@@ -4,6 +4,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,4 +47,8 @@ Route::get('tabel', [PageController::class, 'dataTabel']);
 // Route::get('createsiswa', [SiswaController::class, 'create']);
 // Route::get('storesiswa', [SiswaController::class, 'store']);
 
-Route::resource('siswa', SiswaController::class);
+Route::resource('siswa', SiswaController::class)->middleware(['auth', 'admin']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
