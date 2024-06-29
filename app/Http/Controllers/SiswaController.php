@@ -13,7 +13,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $data = Siswa::all();
+        $data = Siswa::all();   
         // dd($data);
         return view('tampil', compact('data'));
     }

@@ -17,10 +17,8 @@ class Siswa extends Model
     //     'nama',
     //     'alamat',
     // ];
-
-
+ 
     function sekolah() {
         return $this->belongsTo(Sekolah::class);
     }
-    
 }
